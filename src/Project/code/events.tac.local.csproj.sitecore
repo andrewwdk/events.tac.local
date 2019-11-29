@@ -6,4 +6,13 @@
   <File Include="/Views/TAC/Events/Layouts/Events.cshtml" FileTimestamp="0" FileSize="0" ServerTimestamp="0" ServerFileSize="0">
     <Item DatabaseName="master">{6DCA76B7-226F-4C46-BA19-E4B55A1EE1AC}</Item>
   </File>
+  <File Include="Views\TAC\Events\SideContent.cshtml" FileTimestamp="0" FileSize="0" ServerTimestamp="0" ServerFileSize="0">
+    <Item DatabaseName="master">{3257148B-1289-4AD7-8404-E3133B3196AF}</Item>
+  </File>
+  <File Include="Views\TAC\Events\PageContent.cshtml" FileTimestamp="0" FileSize="0" ServerTimestamp="0" ServerFileSize="0">
+    <Item DatabaseName="master">{43AF46A0-D66A-4695-94BA-6ACAE1EB5C35}</Item>
+  </File>
+  <File Include="Views\TAC\Events\Two-column.cshtml" FileTimestamp="0" FileSize="0" ServerTimestamp="0" ServerFileSize="0">
+    <Item DatabaseName="master">{CA999E5C-AB43-4DB6-A0FC-7E32607B3A79}</Item>
+  </File>
 </Project>

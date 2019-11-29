@@ -311,6 +311,11 @@
     <Content Include="Scripts\jquery-3.3.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.3.1.min.map" />
     <Content Include="Views\EventIntro\Index.cshtml" />
+    <Content Include="Views\TAC\Events\SideContent.cshtml" />
+    <Content Include="Views\TAC\Events\PageContent.cshtml" />
+    <Content Include="Views\TAC\Events\Two-column.cshtml" />
+    <Content Include="Views\TAC\Events\One-column.cshtml" />
+    <Content Include="Views\TAC\Events\HomeContent.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
