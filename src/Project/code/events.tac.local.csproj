@@ -318,6 +318,7 @@
     <Content Include="Views\TAC\Events\HomeContent.cshtml" />
     <Content Include="Views\TAC\Events\FeatureRow.cshtml" />
     <Content Include="Views\TAC\Events\FeaturedIvent.cshtml" />
+    <Content Include="Views\TAC\Carousel\Carousel.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
