@@ -5,14 +5,16 @@
 
 }
 
+@functions{
+    TagBuilder CreateDivWrap(DynamicPlaceholderRenderContext context)
+    { 
+        var tagBuilder = new TagBuilder("div");
+        int[] widths = new  int[] { 0, 12, 6, 4, 3};
+        tagBuilder.AddCssClass("col-sm-" + widths[context.PlaceholdersCount]);
+        return tagBuilder;
+    }
+}
+
 <div class="row">
-    <div class="col-sm-4">
-        @Html.Sitecore().DynamicPlaceholder("feature-left")
-    </div>
-    <div class="col-sm-4">
-        @Html.Sitecore().DynamicPlaceholder("feature-middle")
-    </div>
-    <div class="col-sm-4">
-        @Html.Sitecore().DynamicPlaceholder("feature-right")
-    </div>
+    @Html.Sitecore().DynamicPlaceholder("feature_spot", CreateDivWrap, 3, 4)
 </div>

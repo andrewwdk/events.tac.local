@@ -5,7 +5,7 @@
 
 }
 
-    <div class="thumbnail">
+    <div class="thumbnail well @Model.Rendering.Parameters["CssClass"]">
         <a href="Event-Detail.html">
             @Html.Sitecore().Field("EventImage", new { @class="img-responsive", mw = 500, mh = 333 })
         </a>
