@@ -1,0 +1,41 @@
+﻿@using Sitecore.Mvc
+@using Sitecore.Mvc.Presentation
+@model RenderingModel
+@{
+    Sitecore.Data.Fields.MultilistField slidesField = Model.Item.Fields["Slides"];
+    var slides = slidesField.GetItems();
+    Random rand = new Random();
+    var id = rand.Next(1, 10000);
+}
+
+
+<!-- [Homepage Carousell] -->
+<div id="carousel_@id" class="carousel slide" data-ride="carousel">
+    <div class="carousel-inner" role="listbox">
+        @if (slides.Length > 0)
+        {
+            Sitecore.Data.Fields.ImageField imageField = slides[0].Fields["ItemImage"];
+            Sitecore.Data.Items.MediaItem image = new Sitecore.Data.Items.MediaItem(imageField.MediaItem);
+            string src = Sitecore.StringUtil.EnsurePrefix('/', Sitecore.Resources.Media.MediaManager.GetMediaUrl(image));
+
+            Sitecore.Data.Fields.LinkField linkField = slides[0].Fields["CarouselItemLink"];
+            string url = Sitecore.Links.LinkManager.GetItemUrl(linkField.TargetItem);
+
+            <div class="item active">
+                <div class="jumbotron jumbotron-xl bg-media" style="background-image: url(@src)">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <h1> @Html.Sitecore().Field("ContentHeading", slides[0]) </h1>
+                                <p class="lead">@Html.Sitecore().Field("ContentIntro", slides[0])</p>
+                                <a class="btn btn-hollow btn-lg" href=@url>Read more</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        }
+    </div>
+</div>
+<!-- [/Homepage Carousell] -->

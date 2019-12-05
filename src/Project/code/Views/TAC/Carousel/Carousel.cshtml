@@ -8,9 +8,10 @@
     var id = rand.Next(1, 10000);
 }
 
-
 <!-- [Homepage Carousell] -->
-<div id="carousel_@id" class="carousel slide" data-ride="carousel">
+<div id="carousel_@id" class="carousel slide" data-ride="@Model.Rendering.Parameters["Ride"]" 
+    data-interval="@Model.Rendering.Parameters["Interval"]" data-keyboard="@Model.Rendering.Parameters["Keyboard"]" 
+    data-pause="@Model.Rendering.Parameters["Pause"]" data-wrap="@Model.Rendering.Parameters["Wrap"]">
     <ol class="carousel-indicators">
         @for (int i = 0; i < slides.Length; i++)
         {
@@ -23,11 +24,7 @@
                 <li data-target="#carousel_@id" data-slide-to="@i" class=""></li>
             }
         }
-        @*<li data-target="#carousel_1" data-slide-to="0" class="active"></li>
-        <li data-target="#carousel_1" data-slide-to="1" class=""></li>*@
     </ol>
-
-    
 
     <div class="carousel-inner" role="listbox">
         @for (int i = 0; i < slides.Length; i++)
@@ -38,83 +35,31 @@
 
             Sitecore.Data.Fields.LinkField linkField = slides[i].Fields["CarouselItemLink"];
             string url = Sitecore.Links.LinkManager.GetItemUrl(linkField.TargetItem);
-            
-                <div class="item @(i == 0 ? "active" : "")">
-                    <div class="jumbotron jumbotron-xl bg-media" style="background-image: url(@src)">
-                        <div class="container">
-                            <div class="row">
-                                <div class="col-md-12">
-                                    <h1> @Html.Sitecore().Field("ContentHeading", slides[i]) </h1>
-                                    <p class="lead">@Html.Sitecore().Field("ContentIntro", slides[i])</p>
-                                    <a class="btn btn-hollow btn-lg" href=@url>Read more</a>
-                                </div>
+
+            <div class="item @(i == 0 ? "active" : "")">
+                <div class="jumbotron jumbotron-xl bg-media" style="background-image: url(@src)">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <h1> @Html.Sitecore().Field("ContentHeading", slides[i]) </h1>
+                                <p class="lead">@Html.Sitecore().Field("ContentIntro", slides[i])</p>
+                                <a class="btn btn-hollow btn-lg" href=@url>Read more</a>
                             </div>
                         </div>
                     </div>
                 </div>
-            
+            </div>
+
         }
     </div>
-                @*<div class="item active">
-                    <div class="jumbotron jumbotron-xl bg-media" style="background-image: url(Images/carousel-climbing.jpg)">
-                        <div class="container">
-                            <div class="row">
-                                <div class="col-md-12">
-                                    <h1>Climbing</h1>
-                                    <p class="lead">Up for challenge? See our climbing events.</p>
-                                    <a class="btn btn-hollow btn-lg" href="Event-List.html">Read more</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="item">
-                    <div class="jumbotron jumbotron-xl bg-media" style="background-image: url(Images/carousel-cycling.jpg)">
-                        <div class="container">
-                            <div class="row">
-                                <div class="col-md-12">
-                                    <h1>Cycling</h1>
-                                    <p class="lead">Happy couple cycling in canola fields.</p>
-                                    <a class="btn btn-hollow btn-lg" href="Event-List.html">Read more</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="item">
-                    <div class="jumbotron jumbotron-xl bg-media" style="background-image: url(Images/carousel-hiking.jpg)">
-                        <div class="container">
-                            <div class="row">
-                                <div class="col-md-12">
-                                    <h1>Hiking </h1>
-                                    <p class="lead">Hikers group trekking in Crimea.</p>
-                                    <a class="btn btn-hollow btn-lg" href="Event-List.html">Read more</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="item">
-                    <div class="jumbotron jumbotron-xl bg-media" style="background-image: url(Images/carousel-skiing.jpg)">
-                        <div class="container">
-                            <div class="row">
-                                <div class="col-md-12">
-                                    <h1>Skiing</h1>
-                                    <p class="lead">Join our skiing event!</p>
-                                    <a class="btn btn-hollow btn-lg" href="Event-List.html">Read more</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div> *@
-            
-            <a class="left carousel-control" href="#carousel_@id" role="button" data-slide="prev">
-                <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-                <span class="sr-only">Previous</span>
-            </a>
-            <a class="right carousel-control" href="#carousel_@id" role="button" data-slide="next">
-                <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-                <span class="sr-only">Next</span>
-            </a>
-        </div>
+
+    <a class="left carousel-control" href="#carousel_@id" role="button" data-slide="prev">
+        <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+    </a>
+    <a class="right carousel-control" href="#carousel_@id" role="button" data-slide="next">
+        <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+    </a>
+</div>
 <!-- [/Homepage Carousell] -->
