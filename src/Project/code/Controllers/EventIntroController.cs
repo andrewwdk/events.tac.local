@@ -14,7 +14,7 @@ namespace events.tac.local.Controllers
         // GET: EventIntro
         public ActionResult Index()
         {
-            return View(CreateModel());
+            return PartialView(CreateModel());
         }
 
         public static EventIntro CreateModel()

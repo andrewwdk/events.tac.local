@@ -1,0 +1,12 @@
+﻿@model IEnumerable<Sitecore.Feature.Business.Models.NavigationItem>
+
+    <!-- [Breadcrumb Navigation] -->
+    <ol class="breadcrumb">
+        @foreach (var item in Model)
+        {
+            <li class="@(item.Active ? "active" : string.Empty)">
+                <a href="@item.URL">@item.Title</a>
+            </li>
+        }
+    </ol>
+    <!-- [/Breadcrumb Navigation] -->

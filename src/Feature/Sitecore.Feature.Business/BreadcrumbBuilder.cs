@@ -20,7 +20,20 @@ namespace Sitecore.Feature.Business
 
         public IEnumerable<NavigationItem> Build()
         {
-            throw new System.NotImplementedException();
+            IEnumerable<NavigationItem> items = null;
+
+            if (_context?.ContextItem == null || _context?.HomeItem == null)
+            {
+                items = Enumerable.Empty<NavigationItem>();
+            }
+            else
+            {
+                items = _context.ContextItem.GetAncestors().Where(i => _context.HomeItem.IsAncestorOrSelf(i))
+                    .Select(i => new NavigationItem(i.DisplayName, i.Url, false))
+                    .Concat(new[] { new NavigationItem(_context.ContextItem.DisplayName, _context.ContextItem.Url, true) });
+            }
+
+            return items;
         }
 
     }
