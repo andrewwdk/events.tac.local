@@ -11,12 +11,15 @@
 @helper RenderMenu(NavigationMenuItem navMenu)
 {
 <ul class="nav nav-pills nav-stacked">
-    @foreach (var item in navMenu.Children)
+    @if (navMenu.Children != null)
     {
-        <li class="@(item.Children != null ? "open" : "")">
-            <a href="@item.URL">@item.Title</a>
-            @RenderMenu(item)
-        </li>
+        foreach (var item in navMenu.Children)
+        {
+            <li class="@(item.Children != null ? "open" : "")">
+                <a href="@item.URL">@item.Title</a>
+                @RenderMenu(item)
+            </li>
+        }
     }
 
 </ul>

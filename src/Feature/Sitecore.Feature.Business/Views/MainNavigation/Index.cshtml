@@ -1,0 +1,46 @@
+﻿@using Sitecore.Feature.Business.Models;
+@model Sitecore.Feature.Business.Models.MainNavigationItem
+
+<!-- [Main Navigation] -->
+<div class="navbar-left">
+    <div class="collapse navbar-collapse" id="siteNavbar">
+        <ul class="nav navbar-nav">
+            <li><a class="text-uppercase" href="@Model.URL">@Model.Title</a></li>
+            @RenderNavigation(Model)
+        </ul>
+    </div>
+</div>
+<!-- [/Main Navigation] -->
+
+@helper RenderNavigation(MainNavigationItem nav)
+{
+
+    if (nav.Children != null)
+    {
+        foreach (var item in nav.Children)
+        {
+            <li class="dropdown">
+                <a href="@item.URL" class="dropdown-toggle text-uppercase" data-toggle="dropdown" role="button" aria-haspopup="true"
+                    aria-expanded="false">
+                    @item.Title<span class="caret"></span>
+                </a>
+                <ul class="dropdown-menu">
+                    @RenderSubNavigationItem((MainNavigationItem)item, false)
+                </ul>
+            </li>
+        }
+    }
+
+}
+
+@helper RenderSubNavigationItem(MainNavigationItem nav, bool isSubchild)
+{
+    if (nav.Children != null)
+    {
+        foreach (var item in nav.Children)
+        {
+            <li><a href="@item.URL"> @(isSubchild ? "---" : "") @item.Title</a></li>
+            @RenderSubNavigationItem((MainNavigationItem)item, true)
+        }
+    }
+}

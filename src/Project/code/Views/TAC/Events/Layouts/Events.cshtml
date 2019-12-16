@@ -7,6 +7,7 @@
 }
 <!DOCTYPE html>
 <!--[if IE 9]><html lang="en" class="ie9 no-js"><![endif]-->
+
 <!--[if !IE]><!-->
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml">
 <!--<![endif]-->
@@ -42,27 +43,7 @@
                         </a>
                     </div>
                     <!-- [/Company Logo] -->
-                    <!-- [Main Navigation] -->
-                    <div class="navbar-left">
-                        <div class="collapse navbar-collapse" id="siteNavbar">
-                            <ul class="nav navbar-nav">
-                                <li><a class="text-uppercase" href="index.html">Home</a></li>
-                                <li class="dropdown">
-                                    <a href="Event-Sections.html" class="dropdown-toggle text-uppercase" data-toggle="dropdown" role="button" aria-haspopup="true"
-                                       aria-expanded="false">
-                                        Events<span class="caret"></span>
-                                    </a>
-                                    <ul class="dropdown-menu">
-                                        <li><a href="Event-List.html">Climbing</a></li>
-                                        <li><a href="Event-List.html">Cycling</a></li>
-                                        <li><a href="Event-List.html">Hiking</a></li>
-                                        <li><a href="Event-List.html">Skiing</a></li>
-                                    </ul>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                    <!-- [/Main Navigation] -->
+                    @Html.Sitecore().Placeholder("mainNavigation")
                     <!-- [Language Navigation] -->
                     <div class="navbar-right">
                         <div class="navbar-activity">

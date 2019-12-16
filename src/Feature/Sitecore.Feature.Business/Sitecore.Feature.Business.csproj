@@ -123,6 +123,7 @@
     <Content Include="Views\Breadcrumb\Index.cshtml" />
     <Content Include="Web.config" />
     <Content Include="Views\Navigation\Index.cshtml" />
+    <Content Include="Views\MainNavigation\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -133,7 +134,10 @@
   <ItemGroup>
     <Compile Include="BreadcrumbBuilder.cs" />
     <Compile Include="Controllers\BreadcrumbController.cs" />
+    <Compile Include="Controllers\MainNavigationController.cs" />
     <Compile Include="Controllers\NavigationController.cs" />
+    <Compile Include="MainNavigationBuilder.cs" />
+    <Compile Include="Models\MainNavigationItem.cs" />
     <Compile Include="Models\NavigationItem.cs" />
     <Compile Include="Models\NavigationMenuItem.cs" />
     <Compile Include="NavigationBuilder.cs" />
@@ -149,7 +153,6 @@
     <Content Include="Content\bootstrap-theme.min.css.map" />
     <Content Include="Content\bootstrap-theme.css.map" />
     <None Include="packages.config" />
-    <Content Include="Views\_ViewStart.cshtml" />
     <None Include="Views\web.config" />
     <Content Include="Scripts\jquery-3.3.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.3.1.min.map" />
