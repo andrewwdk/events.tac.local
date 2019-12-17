@@ -27,17 +27,8 @@ namespace Sitecore.Feature.Business
         public IEnumerable<MainNavigationItem> Build(IItem node)
         {
             var children = node.GetChildren();
-
-            //foreach(var child in children)
-            //{
-            //    var ddd = child["ExcludeFromNavigation"];
-            //}
-
             var includedInNavigation = children.Where(i => i["ExcludeFromNavigation"] != "1");
             return includedInNavigation.Select(i => new MainNavigationItem(i.DisplayName, i.Url, Build(i)));
-            //return node.GetChildren()
-            //    .Where(i => bool.Parse(i["ExcludeFromNavigation"]) == false)
-            //    .Select(i => new MainNavigationItem(i.DisplayName, i.Url, Build(i)));
         }
     }
 }

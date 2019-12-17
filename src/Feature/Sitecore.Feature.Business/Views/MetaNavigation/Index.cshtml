@@ -1,0 +1,12 @@
+﻿@using Sitecore.Feature.Business.Models;
+
+<!-- [Meta Navigation] -->
+    <ul class="nav nav-stacked">
+        @foreach (MetaNavigationItem item in Model)
+        {
+            <li>
+                <a href="@item.URL" title="Legal Notice">@item.Title</a>
+            </li>
+        }
+    </ul>
+<!-- [/Meta Navigation] -->
