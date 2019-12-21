@@ -272,12 +272,15 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BreadcrumbBuilder.cs" />
+    <Compile Include="Builder Interfaces\IMainNavigationBuilder.cs" />
+    <Compile Include="Builder Interfaces\IMetaNavigationBuilder.cs" />
     <Compile Include="Controllers\BreadcrumbController.cs" />
     <Compile Include="Controllers\MainNavigationController.cs" />
     <Compile Include="Controllers\MetaNavigationController.cs" />
     <Compile Include="Controllers\NavigationController.cs" />
-    <Compile Include="MainNavigationBuilder.cs" />
-    <Compile Include="MetaNavigationBuilder.cs" />
+    <Compile Include="Builders\MainNavigationBuilder.cs" />
+    <Compile Include="Builders\MetaNavigationBuilder.cs" />
+    <Compile Include="DependenciesRegistration.cs" />
     <Compile Include="Models\MainNavigationItem.cs" />
     <Compile Include="Models\MetaNavigationItem.cs" />
     <Compile Include="Models\NavigationItem.cs" />
