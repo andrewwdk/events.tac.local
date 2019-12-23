@@ -7,7 +7,7 @@ namespace Sitecore.Feature.Business.Models
 {
     public class MainNavigationItem : NavigationMenuItem
     {
-        public MainNavigationItem(string title, string url, IEnumerable<MainNavigationItem> children/*, bool excludeFromnavigation*/)
+        public MainNavigationItem(string title, string url, IEnumerable<MainNavigationItem> children)
             :base(title, url, children)
         {
         }
