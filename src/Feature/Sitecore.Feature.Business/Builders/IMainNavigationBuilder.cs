@@ -5,10 +5,10 @@ using System.Web;
 using Sitecore.Data.Items;
 using Sitecore.Feature.Business.Models;
 
-namespace Sitecore.Feature.Business.Builder_Interfaces
+namespace Sitecore.Feature.Business.Builders
 {
-    public interface IMetaNavigationBuilder
+    public interface IMainNavigationBuilder
     {
-        IEnumerable<MetaNavigationItem> Build(Item home);
+        MainNavigationItem Build(Item home);
     }
 }

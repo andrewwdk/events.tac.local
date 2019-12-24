@@ -44,24 +44,7 @@
                     </div>
                     <!-- [/Company Logo] -->
                     @Html.Sitecore().Placeholder("mainNavigation")
-                    <!-- [Language Navigation] -->
-                    <div class="navbar-right">
-                        <div class="navbar-activity">
-                            <ul class="nav navbar-nav">
-                                <li class="dropdown">
-                                    <a href="#" class="btn dropdown-toggle" data-toggle="dropdown">
-                                        <i class="fa fa-globe"></i>
-                                    </a>
-                                    <ul class="dropdown-menu">
-                                        <li class="active"><a href="#">English</a></li>
-                                        <li><a href="#">Deutsch (Deutschland)</a></li>
-                                        <li><a href="#">日本語 (日本)</a></li>
-                                    </ul>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                    <!-- [/Language Navigation] -->
+                    @Html.Sitecore().Placeholder("language")
                 </div>
             </nav>
         </header>

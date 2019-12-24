@@ -3,8 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using Sitecore.Mvc.Presentation;
 using Sitecore.Feature.Business.Builders;
-using Sitecore.Feature.Business.Builder_Interfaces;
 
 namespace Sitecore.Feature.Business.Controllers
 {
@@ -20,8 +20,9 @@ namespace Sitecore.Feature.Business.Controllers
         // GET: MetaNavigation
         public ActionResult Index()
         {
-            var home = Sitecore.Context.Database.GetItem(Sitecore.Context.Site.StartPath);
-            return PartialView("~/Views/MetaNavigation/Index.cshtml", _builder.Build(home));
+            var dataSourceId = RenderingContext.CurrentOrNull.Rendering.DataSource;
+            var dataSource = Sitecore.Context.Database.GetItem(dataSourceId);
+            return PartialView("~/Views/MetaNavigation/Index.cshtml", _builder.Build(dataSource));
         }
     }
 }

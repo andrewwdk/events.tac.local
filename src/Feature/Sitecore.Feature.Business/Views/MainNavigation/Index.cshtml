@@ -25,7 +25,7 @@
                     @item.Title<span class="caret"></span>
                 </a>
                 <ul class="dropdown-menu">
-                    @RenderSubNavigationItem((MainNavigationItem)item, false)
+                    <li>@RenderSubNavigationItem((MainNavigationItem)item)</li>
                 </ul>
             </li>
         }
@@ -33,14 +33,16 @@
 
 }
 
-@helper RenderSubNavigationItem(MainNavigationItem nav, bool isSubchild)
+@helper RenderSubNavigationItem(MainNavigationItem nav)
 {
     if (nav.Children != null)
     {
-        foreach (var item in nav.Children)
-        {
-            <li><a href="@item.URL"> @(isSubchild ? "---" : "") @item.Title</a></li>
-            @RenderSubNavigationItem((MainNavigationItem)item, true)
-        }
+        <ul>
+            @foreach (var item in nav.Children)
+            {
+                <li><a href="@item.URL"> @item.Title</a></li>
+                @RenderSubNavigationItem((MainNavigationItem)item)
+            }
+        </ul>
     }
 }

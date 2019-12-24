@@ -5,7 +5,6 @@ using System.Web;
 using Sitecore.Data.Fields;
 using Sitecore.Data.Items;
 using Sitecore.Feature.Business.Models;
-using Sitecore.Feature.Business.Builder_Interfaces;
 using Sitecore.Links;
 using TAC.Sitecore.Abstractions.Interfaces;
 using TAC.Sitecore.Abstractions.SitecoreImplementation;
@@ -14,11 +13,16 @@ namespace Sitecore.Feature.Business.Builders
 {
     public class MetaNavigationBuilder : IMetaNavigationBuilder
     {
-        public IEnumerable<MetaNavigationItem> Build(Item home)
+        public IEnumerable<MetaNavigationItem> Build(Item datasource)
         {
+            if (datasource == null)
+            {
+                return null;
+            }
+
             string title, url;
             var pages = new List<MetaNavigationItem>();
-            MultilistField multiselectField = home.Fields["MetaPages"];
+            MultilistField multiselectField = datasource.Fields["MetaPages"];
             Item[] items = multiselectField.GetItems();
 
             if (items != null)
@@ -32,6 +36,7 @@ namespace Sitecore.Feature.Business.Builders
             }
 
             return pages;
+               
         }
     }
 }
