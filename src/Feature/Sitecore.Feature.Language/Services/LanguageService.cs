@@ -15,21 +15,22 @@ namespace Sitecore.Feature.Language.Services
             var selector = new LanguageSelector();
             var siteLanguages = context.Database.GetLanguages();
 
-            foreach(var siteLanguage in siteLanguages)
-            {
-                var name = siteLanguage.CultureInfo.Name;
-                var url = "http://" + GetSite(siteLanguage.Name).HostName;
-                selector.SupportedLanguages.Add(new Models.Language(name, url));
-            }
+            selector.ActiveLanguage = new Models.Language(Context.Language.CultureInfo.DisplayName, Links.LinkManager.GetItemUrl(Sitecore.Context.Item));
 
-            selector.ActiveLanguage = new Models.Language(context.Language, null);
+            foreach (var siteLanguage in siteLanguages)
+            {
+                var name = siteLanguage.CultureInfo.DisplayName;
+                var currentUrl = Links.LinkManager.GetItemUrl(Sitecore.Context.Item);
+                var finalUrl = ChangeUrlLanguage(currentUrl, "/" + Context.Language.Name, "/" + siteLanguage.CultureInfo.Name);
+                selector.SupportedLanguages.Add(new Models.Language(name, finalUrl));
+            }
 
             return selector;
         }
 
-        private SiteInfo GetSite(string language)
+        private string ChangeUrlLanguage(string url, string oldLanguage, string newLanguage)
         {
-            return SiteContextFactory.Sites.First(s => s.Language == language && s.HostName != string.Empty);
+            return url.Replace(oldLanguage, newLanguage);
         }
     }
 }

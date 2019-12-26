@@ -177,6 +177,7 @@
     <Content Include="Views\web.config" />
     <None Include="App_Config\Include\Feature\Feature.Language.DependancyRegistration.config" />
     <None Include="App_Config\Include\Feature\Feature.Language.LanguageEmbedding.config" />
+    <Content Include="App_Config\Include\Feature\Sitecore.LanguageFallback.config" />
     <None Include="packages.config" />
     <Content Include="Web.config" />
     <None Include="Properties\PublishProfiles\CustomProfile.pubxml" />

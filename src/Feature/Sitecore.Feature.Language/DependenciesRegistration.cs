@@ -14,8 +14,8 @@ namespace Sitecore.Feature.Language
     {
         public void Configure(IServiceCollection serviceCollection)
         {
-            serviceCollection.AddSingleton<LanguageController>();
-            serviceCollection.AddSingleton(typeof(ILanguageService), typeof(LanguageService));
+            serviceCollection.AddScoped<LanguageController>();
+            serviceCollection.AddScoped(typeof(ILanguageService), typeof(LanguageService));
         }
     }
 }

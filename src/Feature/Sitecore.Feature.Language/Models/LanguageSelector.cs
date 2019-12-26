@@ -9,5 +9,10 @@ namespace Sitecore.Feature.Language.Models
     {
         public Language ActiveLanguage { get; set; }
         public List<Language> SupportedLanguages { get; set; }
+
+        public LanguageSelector()
+        {
+            SupportedLanguages = new List<Language>();
+        }
     }
 }

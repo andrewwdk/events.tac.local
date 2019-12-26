@@ -19,7 +19,7 @@ namespace Sitecore.Feature.Language.Controllers
         public ActionResult Index()
         {
             var context = Context.Site;
-            return View("~/Views/Language/Index.cshtml", _service.Build(context));
+            return PartialView("~/Views/Language/Index.cshtml", _service.Build(context));
         }
     }
 }

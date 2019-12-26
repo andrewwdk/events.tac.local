@@ -10,10 +10,9 @@
                     <i class="fa fa-globe"></i>
                 </a>
                 <ul class="dropdown-menu">
-                    <li class="active"><a href="#">@Model.ActiveLanguage.Name</a></li>
                     @foreach (var language in Model.SupportedLanguages)
                     {
-                        <li><a href="@language.Url">@language.Name</a></li>
+                        <li class="@(Model.ActiveLanguage.Name == language.Name ? "active" : string.Empty)"><a href="@language.Url">@language.Name</a></li>
                     }
                 </ul>
             </li>
