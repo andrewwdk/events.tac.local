@@ -326,6 +326,7 @@
     <Compile Include="MetaNavigationBuilderTests.cs" />
     <Compile Include="NavigationBuilderTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RelatedEventsProviderTests.cs" />
     <Compile Include="TestTree.cs" />
   </ItemGroup>
   <ItemGroup>

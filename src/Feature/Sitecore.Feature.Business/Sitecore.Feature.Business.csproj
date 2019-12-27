@@ -272,6 +272,7 @@
     <Content Include="Views\MainNavigation\Index.cshtml" />
     <Content Include="Views\MetaNavigation\Index.cshtml" />
     <Content Include="Web.config" />
+    <Content Include="Views\RelatedEvents\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -289,6 +290,7 @@
     <Compile Include="Controllers\NavigationController.cs" />
     <Compile Include="Builders\MainNavigationBuilder.cs" />
     <Compile Include="Builders\MetaNavigationBuilder.cs" />
+    <Compile Include="Controllers\RelatedEventsController.cs" />
     <Compile Include="DependenciesRegistration.cs" />
     <Compile Include="Models\MainNavigationItem.cs" />
     <Compile Include="Models\MetaNavigationItem.cs" />
@@ -296,6 +298,7 @@
     <Compile Include="Models\NavigationMenuItem.cs" />
     <Compile Include="NavigationBuilder.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RelatedEventsProvider.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
