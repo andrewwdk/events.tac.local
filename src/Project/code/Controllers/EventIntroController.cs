@@ -20,6 +20,7 @@ namespace events.tac.local.Controllers
         public static EventIntro CreateModel()
         {
             var item = RenderingContext.Current.ContextItem;
+            int diffLevel;
             return new EventIntro()
             { 
                 ContentHeading = new HtmlString(FieldRenderer.Render(item, "ContentHeading")),
@@ -29,7 +30,9 @@ namespace events.tac.local.Controllers
                 ContentIntro = new HtmlString(FieldRenderer.Render(item, "ContentIntro")),
                 StartDate = new HtmlString(FieldRenderer.Render(item, "StartDate")),
                 Duration = new HtmlString(FieldRenderer.Render(item, "Duration")),
-                DifficultyLevel = new HtmlString(FieldRenderer.Render(item, "DifficultyLevel"))
+                DifficultyLevel = int.TryParse(item.Fields["DifficultyLevel"].Value, out diffLevel)
+                    ? diffLevel
+                    : 0
             };
         }
     }

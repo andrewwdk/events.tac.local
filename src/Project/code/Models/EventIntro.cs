@@ -14,6 +14,6 @@ namespace events.tac.local.Models
         public HtmlString Highlights { get; set; }
         public HtmlString StartDate { get; set; }
         public HtmlString Duration { get; set; }
-        public HtmlString DifficultyLevel { get; set; }
+        public int DifficultyLevel { get; set; }
     }
 }
