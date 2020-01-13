@@ -10,6 +10,7 @@ namespace Sitecore.Feature.Forms.Controllers
     public class CommentsFormController : Controller
     {
         // GET: CommentsForm
+        //[HttpGet]
         public ActionResult Index()
         {
             return PartialView();
@@ -19,7 +20,7 @@ namespace Sitecore.Feature.Forms.Controllers
         [ValidateFormHandler]
         public ActionResult Index(string comment, string name)
         {
-            return PartialView("Confirmation");
+            return PartialView("~/Views/CommentsForm/Confirmation.cshtml");
         }
     }
 }

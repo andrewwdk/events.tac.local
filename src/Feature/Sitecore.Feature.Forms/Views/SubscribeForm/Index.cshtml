@@ -8,7 +8,7 @@
         <div class="text">@Model.ContentIntro</div>
         @using (Html.BeginForm())
         {
-            @Html.FormHandler()
+            @Html.FormHandler(/*"SubscribeFormController", "Subscribe"*/)
             <div>
                 <input class="form-control" type="email" placeholder="your@email.com" name="email">
             </div>

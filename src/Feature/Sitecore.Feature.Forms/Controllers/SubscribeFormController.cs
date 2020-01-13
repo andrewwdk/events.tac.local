@@ -13,6 +13,7 @@ namespace Sitecore.Feature.Forms.Controllers
     public class SubscribeFormController : Controller
     {
         // GET: SubscribeForm
+        //[HttpGet]
         public ActionResult Index()
         {
             var dataSourceId = RenderingContext.Current.Rendering.DataSource;
@@ -27,7 +28,7 @@ namespace Sitecore.Feature.Forms.Controllers
         [ValidateFormHandler]
         public ActionResult Index(string email)
         {
-            return PartialView("Confirmation");
+            return PartialView("~/Views/SubscribeForm/Confirmation.cshtml");
         }
     }
 }
