@@ -188,6 +188,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Scripts\Forms\CommnentsForm\commentsForm.js" />
     <Content Include="Views\web.config" />
     <None Include="packages.config" />
     <Content Include="Web.config" />
