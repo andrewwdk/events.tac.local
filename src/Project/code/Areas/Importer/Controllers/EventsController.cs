@@ -44,10 +44,10 @@ namespace events.tac.local.Areas.Importer.Controllers
                             item.Editing.BeginEdit();
                             item["ContentHeading"] = currentEvent.ContentHeading;
                             item["ContentIntro"] = currentEvent.ContentIntro;
-                            item["Difficulty"] = currentEvent.Difficulty.ToString();
+                            item["DifficultyLevel"] = currentEvent.Difficulty.ToString();
                             item["Duration"] = currentEvent.Duration.ToString();
                             item["Highlights"] = currentEvent.Highlights;
-                            item["StartDate"] = currentEvent.StartDate.ToString();
+                            item["StartDate"] = Sitecore.DateUtil.ToIsoDate(currentEvent.StartDate);
                             item.Editing.EndEdit();
                         }
                     }
