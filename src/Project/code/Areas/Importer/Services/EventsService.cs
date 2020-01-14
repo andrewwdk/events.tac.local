@@ -12,7 +12,16 @@ namespace events.tac.local.Areas.Importer.Services
 {
     public class EventsService
     {
-        public static void AddItems(Item parent, IEnumerable<Event> events, TemplateID templateID)
+        public int AddCount { get; private set; }
+        public int UpdateCount { get; private set; }
+
+        public EventsService()
+        {
+            AddCount = 0;
+            UpdateCount = 0;
+        }
+
+        public void AddItems(Item parent, IEnumerable<Event> events, TemplateID templateID)
         {
             var children = parent.GetChildren();
             Item foundItem;
@@ -26,17 +35,19 @@ namespace events.tac.local.Areas.Importer.Services
                         if(foundItem != null)
                         {
                             UpdateItem(foundItem, currentEvent);
+                            UpdateCount++;
                         }
                     }
                     else
                     {
                         AddItem(parent, currentEvent, templateID);
+                        AddCount++;
                     }
                 }
             }
         }
 
-        private static bool EventExists(ChildList children, string name, out Item foundItem)
+        private bool EventExists(ChildList children, string name, out Item foundItem)
         {
             foreach(var child in children)
             {
@@ -51,7 +62,7 @@ namespace events.tac.local.Areas.Importer.Services
             return false;
         }
 
-        private static void AddItem(Item parent, Event currentEvent, TemplateID templateID)
+        private void AddItem(Item parent, Event currentEvent, TemplateID templateID)
         {
             var name = ItemUtil.ProposeValidItemName(currentEvent.ContentHeading);
             Item item = parent.Add(name, templateID);
@@ -65,7 +76,7 @@ namespace events.tac.local.Areas.Importer.Services
             item.Editing.EndEdit();
         }
 
-        private static void UpdateItem(Item item, Event currentEvent)
+        private void UpdateItem(Item item, Event currentEvent)
         {
             item.Editing.BeginEdit();
             item["ContentHeading"] = currentEvent.ContentHeading;
