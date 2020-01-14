@@ -194,6 +194,7 @@
     <Compile Include="Areas\Importer\Controllers\EventsController.cs" />
     <Compile Include="Areas\Importer\ImporterAreaRegistration.cs" />
     <Compile Include="Areas\Importer\Models\Event.cs" />
+    <Compile Include="Areas\Importer\Services\EventsService.cs" />
     <Compile Include="Controllers\EventIntroController.cs" />
     <Compile Include="Models\EventIntro.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
