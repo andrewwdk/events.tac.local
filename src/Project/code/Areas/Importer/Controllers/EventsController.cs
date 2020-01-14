@@ -32,10 +32,9 @@ namespace events.tac.local.Areas.Importer.Controllers
                     IEnumerable<Event> events = JsonConvert.DeserializeObject<IEnumerable<Event>>(contents);
 
                     var database = Sitecore.Configuration.Factory.GetDatabase("master");
-                    var parent = database.GetItem(parentPath);
-                    var templateID = new TemplateID(new ID("{7C3584C1-C656-45E1-9CC7-CC8120E00781}"));
+                    var parent = database.GetItem(parentPath); 
 
-                    service.AddItems(parent, events, templateID);
+                    service.AddItems(parent, events, EventDetails.templateID);
                 }
                 catch(Exception ex)
                 {
