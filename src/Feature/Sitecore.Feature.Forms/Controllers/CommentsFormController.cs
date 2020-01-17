@@ -18,7 +18,7 @@ namespace Sitecore.Feature.Forms.Controllers
 
         [HttpPost]
         [ValidateFormHandler]
-        public ActionResult Index(string comment, string name)
+        public ActionResult Comment(string comment, string name)
         {
             return PartialView("~/Views/CommentsForm/Confirmation.cshtml");
         }
