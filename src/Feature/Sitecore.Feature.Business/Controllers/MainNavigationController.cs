@@ -16,8 +16,6 @@ namespace Sitecore.Feature.Business.Controllers
             _builder = builder;
         }
 
-        public MainNavigationController() : this(new MainNavigationBuilder()) { }
-
         // GET: MainNavigation
         public ActionResult Index()
         {

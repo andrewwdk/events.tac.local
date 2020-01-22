@@ -19,6 +19,8 @@ namespace Sitecore.Feature.Business
             serviceCollection.AddTransient<MainNavigationController>();
             serviceCollection.AddTransient(typeof(IMainNavigationBuilder),
                 typeof(MainNavigationBuilder));
+            serviceCollection.AddTransient<NavigationBuilder>();
+            serviceCollection.AddTransient<NavigationController>();
         }
     }
 }
