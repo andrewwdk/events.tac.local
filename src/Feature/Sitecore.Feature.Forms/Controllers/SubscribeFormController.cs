@@ -31,8 +31,8 @@ namespace Sitecore.Feature.Forms.Controllers
         [ValidateFormHandler]
         public ActionResult Index(string email)
         {
-            string identificationSource = "events";
-            Sitecore.Analytics.Tracker.Current.Session.IdentifyAs(identificationSource, email);
+            string identificationSource = "website";
+            Sitecore.Analytics.Tracker.Current.Session.Identify(identificationSource, email);
             var contact = Sitecore.Analytics.Tracker.Current.Contact;
             var emails = contact.GetFacet<IContactEmailAddresses>("Emails");
             if (!emails.Entries.Contains("personal"))
@@ -42,12 +42,12 @@ namespace Sitecore.Feature.Forms.Controllers
                 personalEmail.SmtpAddress = email;
             }
 
-            //var outcome = new Sitecore.Analytics.Outcome.Model.ContactOutcome(
-            //    Sitecore.Data.ID.NewID,
-            //    new Data.ID("{EC97DE22-55CC-4A65-AACB-50435781D7D6}"),
-            //    new Data.ID(Tracker.Current.Contact.ContactId)
-            //    );
-            //Tracker.Current.RegisterContactOutcome(outcome);
+            var outcome = new Sitecore.Analytics.Outcome.Model.ContactOutcome(
+                Sitecore.Data.ID.NewID,
+                new Data.ID("{EC97DE22-55CC-4A65-AACB-50435781D7D6}"),
+                new Data.ID(Tracker.Current.Contact.ContactId)
+                );
+            Tracker.Current.RegisterContactOutcome(outcome);
 
             return PartialView("~/Views/SubscribeForm/Confirmation.cshtml");
         }
