@@ -49,6 +49,12 @@ namespace Sitecore.Feature.Forms.Controllers
                 );
             Tracker.Current.RegisterContactOutcome(outcome);
 
+            var pageEventData = new Sitecore.Analytics.Data.PageEventData("Newsletter Signup")
+            {
+                Text = "user subsribed."
+            };
+            Tracker.Current.Interaction.CurrentPage.Register(pageEventData);
+
             return PartialView("~/Views/SubscribeForm/Confirmation.cshtml");
         }
     }
