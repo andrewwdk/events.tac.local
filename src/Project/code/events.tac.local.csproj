@@ -246,6 +246,7 @@
     <Content Include="Content\bootstrap-theme.min.css.map" />
     <Content Include="Content\bootstrap-theme.css.map" />
     <Content Include="App_Config\Include\TAC\Events\Events.DefaultIndexConfiguration.config" />
+    <None Include="App_Config\Include\TAC\Events\Events.Serialization.config" />
     <None Include="App_Config\Include\TAC\Events\events.site.config" />
     <Content Include="App_Config\Include\TAC\Events\Solr.Events.Web.Index.config" />
     <None Include="App_Config\Include\TAC\Events\Solr.Events.Master.Index.config" />
