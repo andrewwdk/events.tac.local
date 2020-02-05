@@ -1,0 +1,18 @@
+﻿---
+ID: "fe022db2-5284-4223-8ee5-d5d960bc8076"
+Parent: "ba30bbe2-1c50-48cb-bcf7-b0a68b847cbf"
+Template: "455a3e98-a627-4b40-8035-e683a0331ac7"
+Path: /sitecore/templates/Feature/Search/Rendering Parameters/Search Paging Parameters/Paging Details/PageSize
+DB: master
+SharedFields:
+- ID: "ab162cc0-dc80-4abf-8871-998ee5d7ba32"
+  Hint: Type
+  Value: Integer
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20200117T124306Z

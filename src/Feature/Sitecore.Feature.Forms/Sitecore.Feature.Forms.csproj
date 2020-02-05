@@ -362,6 +362,7 @@
   <ItemGroup>
     <Content Include="Scripts\Forms\CommnentsForm\commentsForm.js" />
     <Content Include="Views\web.config" />
+    <None Include="App_Config\Include\Feature\Forms\Events.Services.Client.config" />
     <None Include="packages.config" />
     <Content Include="Web.config" />
     <None Include="Properties\PublishProfiles\CustomProfile.pubxml" />

@@ -13,14 +13,14 @@ namespace Sitecore.Feature.Forms.Controllers
         //[HttpGet]
         public ActionResult Index()
         {
-            return PartialView();
+            return PartialView("~/Views/CommentsForm/Index.cshtml");
         }
 
-        [HttpPost]
-        [ValidateFormHandler]
-        public ActionResult Comment(string comment, string name)
-        {
-            return PartialView("~/Views/CommentsForm/Confirmation.cshtml");
-        }
+        //[HttpPost]
+        //[ValidateFormHandler]
+        //public ActionResult Comment(string comment, string name)
+        //{
+        //    return PartialView("~/Views/CommentsForm/Confirmation.cshtml");
+        //}
     }
 }

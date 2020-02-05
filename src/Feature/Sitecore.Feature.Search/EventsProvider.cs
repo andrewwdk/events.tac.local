@@ -26,7 +26,8 @@ namespace Sitecore.Feature.Search
                     .Page(pageNo, PageSize)
                     .GetResults();
 
-                var eventDetailsList = results.Hits.Select(h => h.Document).ToArray();
+
+                EventDetails[] eventDetailsList  = results.Hits.Select(h => h.Document).ToArray();
                 //foreach (var currentEvent in eventDetailsList)
                 for(int i = 0; i < eventDetailsList.Length; i++)
                 {

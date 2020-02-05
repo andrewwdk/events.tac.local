@@ -1,0 +1,45 @@
+﻿---
+ID: "7ceeb2b8-f394-45ba-a37f-cc92fda6ed53"
+Parent: "682b60c2-7aa3-497e-9344-1593c6746a08"
+Template: "682b60c2-7aa3-497e-9344-1593c6746a08"
+Path: /sitecore/templates/Feature/Search/Search Page/__Standard Values
+DB: master
+SharedFields:
+- ID: "f1a1fe9e-a60c-4ddb-a3a0-bb5b29fe732e"
+  Hint: __Renderings
+  Type: layout
+  Value: |
+    <r>
+      <d
+        id="{FE5D7FDF-89C0-4D99-9AA3-B5FBD009C9F3}"
+        l="{6DCA76B7-226F-4C46-BA19-E4B55A1EE1AC}">
+        <r
+          id="{9B908C1D-7E43-4FCF-A3E7-891A18F65537}"
+          ph="mainNavigation"
+          uid="{44A1D539-A77E-4048-8941-197137495D6F}" />
+        <r
+          id="{04F5323F-4917-45A9-9590-5FA4ABAC927D}"
+          ph="searchbox"
+          uid="{24830D7E-116F-45A8-B471-E381ABC4528D}" />
+        <r
+          id="{83B1531B-BA67-44EE-AC26-8D3B2F36EB70}"
+          ph="main"
+          uid="{EFDD69CE-622E-4CAF-9BD9-D0DA842EF5F5}" />
+        <r
+          id="{846577A5-F1EC-4577-9480-83DAF02DF10A}"
+          ph="language"
+          uid="{54AEA17C-D92F-430A-8857-76209A2969B6}" />
+        <r
+          id="{FBFF793C-D1B2-41CF-96DB-F541C76FE25A}"
+          ph="metaNavigation"
+          uid="{7D1DEDCF-70A3-485D-AEC1-06554D51DABD}" />
+      </d>
+    </r>
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20200115T115414Z
