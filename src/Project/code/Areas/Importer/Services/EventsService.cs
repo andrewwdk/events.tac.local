@@ -1,4 +1,5 @@
 ﻿using events.tac.local.Areas.Importer.Models;
+using Sitecore;
 using Sitecore.Collections;
 using Sitecore.Data;
 using Sitecore.Data.Items;
@@ -67,6 +68,8 @@ namespace events.tac.local.Areas.Importer.Services
             var name = ItemUtil.ProposeValidItemName(currentEvent.ContentHeading);
             Item item = parent.Add(name, templateID);
             item.Editing.BeginEdit();
+            item[FieldIDs.Workflow] = "{8272D338-C40A-40DD-95A7-E88E8B4BDABB}";
+            item[FieldIDs.WorkflowState] = "{2C88B62D-A1AB-4A41-96E8-7E842BC8C22F}";
             item["ContentHeading"] = currentEvent.ContentHeading;
             item["ContentIntro"] = currentEvent.ContentIntro;
             item["DifficultyLevel"] = currentEvent.Difficulty.ToString();
@@ -79,6 +82,8 @@ namespace events.tac.local.Areas.Importer.Services
         private void UpdateItem(Item item, Event currentEvent)
         {
             item.Editing.BeginEdit();
+            item[FieldIDs.Workflow] = "{8272D338-C40A-40DD-95A7-E88E8B4BDABB}";
+            item[FieldIDs.WorkflowState] = "{ 2C88B62D-A1AB-4A41-96E8-7E842BC8C22F}";
             item["ContentHeading"] = currentEvent.ContentHeading;
             item["ContentIntro"] = currentEvent.ContentIntro;
             item["DifficultyLevel"] = currentEvent.Difficulty.ToString();
