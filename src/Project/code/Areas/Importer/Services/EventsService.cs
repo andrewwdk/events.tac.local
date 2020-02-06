@@ -81,9 +81,15 @@ namespace events.tac.local.Areas.Importer.Services
 
         private void UpdateItem(Item item, Event currentEvent)
         {
+            if (item.State.GetWorkflowState().FinalState)
+            {
+                var id = item.ID;
+                item.Versions.AddVersion();
+                item = Context.Database.GetItem(id);
+            }
             item.Editing.BeginEdit();
             item[FieldIDs.Workflow] = "{8272D338-C40A-40DD-95A7-E88E8B4BDABB}";
-            item[FieldIDs.WorkflowState] = "{ 2C88B62D-A1AB-4A41-96E8-7E842BC8C22F}";
+            item[FieldIDs.WorkflowState] = "{081CD5FD-C90A-4173-96A4-9F133A85AC38}";
             item["ContentHeading"] = currentEvent.ContentHeading;
             item["ContentIntro"] = currentEvent.ContentIntro;
             item["DifficultyLevel"] = currentEvent.Difficulty.ToString();
