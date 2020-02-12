@@ -29,8 +29,11 @@ namespace Sitecore.Feature.Search.Controllers
             var currentPageUrl = System.Web.HttpContext.Current.Request.RawUrl;
             var urlService = new UrlService();
             var search = urlService.GetParamValue(currentPageUrl, "search");
-
-            return PartialView("~/Views/EventsList/Index.cshtml", _provider.GetEventsListBySearch(page - 1, search)) ;
+            var checkedDurations = urlService.GetParamValue(System.Web.HttpContext.Current.Request.RawUrl, "duration")?.Split(',');
+            var checkedDifficulties = urlService.GetParamValue(System.Web.HttpContext.Current.Request.RawUrl, "difficulty")?.Split(',');
+            var durations = checkedDurations != null ? Array.ConvertAll(checkedDurations, s => int.Parse(s)) : null;
+            var difficultiess = checkedDifficulties != null ? Array.ConvertAll(checkedDifficulties, s => int.Parse(s)) : null;
+            return PartialView("~/Views/EventsList/Index.cshtml", _provider.GetEventsListBySearch(page - 1, search, durations, difficultiess));
         }
     }
 }

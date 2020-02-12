@@ -1,0 +1,48 @@
+﻿@using TAC.Utils.Helpers
+@model Sitecore.Feature.Search.Models.Facets
+
+    <div style="width: 20%; margin-left: 2%">
+        @using (Html.BeginForm())
+        {
+            <h4>Duration</h4>
+            if (Model.DurationFacets != null)
+            {
+                <ul class="list-group">
+                    @for (int i = 0; i < Model.DurationFacets.Count; i++)
+                    {
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                            <div class="form-check">
+                                @Html.CheckBoxFor(x => x.DurationFacets[i].IsChecked, new { @class = "form-check-input position-static" })
+                                <span style="margin-left: 10px; color: #c8244f; font-size: 16px; font-weight: bold">@Model.DurationFacets[i].Name</span>
+                                @Html.HiddenFor(m => m.DurationFacets[i].Name)
+                                <span class="badge badge-primary badge-pill" style="float: right">@Model.DurationFacets[i].Count</span>
+                                @Html.HiddenFor(m => m.DurationFacets[i].Count)
+                            </div>
+                        </li>
+                    }
+                </ul>
+            }
+            <h4>Difficulty Level</h4>
+            if (Model.DifficultyFacets != null)
+            {
+                <ul class="list-group">
+                    @for (int i = 0; i < Model.DifficultyFacets.Count; i++)
+                    {
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                            <div class="form-check">
+                                @Html.CheckBoxFor(x => x.DifficultyFacets[i].IsChecked, new { @class = "form-check-input position-static" })
+                                <span style="margin-left: 10px; color: #c8244f; font-size: 16px; font-weight: bold">@Model.DifficultyFacets[i].Name</span>
+                                @Html.HiddenFor(m => m.DifficultyFacets[i].Name)
+                                <span class="badge badge-primary badge-pill" style="float: right">@Model.DifficultyFacets[i].Count</span>
+                                @Html.HiddenFor(m => m.DifficultyFacets[i].Count)
+                            </div>
+                        </li>
+                    }
+                </ul>
+            }
+
+
+            @Html.FormHandler()
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit" style="color: white; background-color: #c8244f; margin-left: 150px">Select</button>
+        }
+    </div>

@@ -28,7 +28,7 @@ namespace Sitecore.Feature.Search
 
 
                 EventDetails[] eventDetailsList  = results.Hits.Select(h => h.Document).ToArray();
-                //foreach (var currentEvent in eventDetailsList)
+               
                 for(int i = 0; i < eventDetailsList.Length; i++)
                 {
                     var item = eventDetailsList[i].GetItem();
@@ -45,7 +45,7 @@ namespace Sitecore.Feature.Search
             }
         }
 
-        public EventsList GetEventsListBySearch(int pageNo, string search)
+        public EventsList GetEventsListBySearch(int pageNo, string search, int[] durations, int[] difficulties)
         {
             var indexname = $"events_{RenderingContext.Current.ContextItem.Database.Name.ToLower()}_index";
             var index = ContentSearchManager.GetIndex(indexname);
@@ -57,18 +57,30 @@ namespace Sitecore.Feature.Search
             {
                 var foundEvents = context.GetQueryable<EventDetails>()
                     .Where(i => i.Paths.Contains(home.ID))
-                    .Where(i => i.Language == RenderingContext.Current.ContextItem.Language.Name)
-                    .Where(i => i.Name.Contains(search));
+                    .Where(i => i.Language == RenderingContext.Current.ContextItem.Language.Name);
+
+                if (search != null)
+                { 
+                    foundEvents = foundEvents.Where(i => i.Name.Contains(search));
+                }
+
+                if(durations != null && durations.Length > 0)
+                {
+                    foundEvents = foundEvents.Where(i => durations.Contains(i.Duration));
+                }
+
+                if (difficulties != null && difficulties.Length > 0)
+                {
+                    foundEvents = foundEvents.Where(i => difficulties.Contains(i.DifficultyLevel));
+                }
 
                 var pastEvents = foundEvents.Where(i => !(i.StartDate >= DateTime.Now)).OrderByDescending(i => i.StartDate);
                 var futureEvents = foundEvents.Where(i => i.StartDate >= DateTime.Now).OrderBy(i => i.StartDate);
 
-                var results = futureEvents.Union(pastEvents)
-                                .Page(pageNo, pageSize)
-                                .GetResults();
+                var results = futureEvents.Union(pastEvents).Page(pageNo, pageSize).GetResults();
 
                 var eventDetailsList = results.Hits.Select(h => h.Document).ToArray();
-                //foreach (var currentEvent in eventDetailsList)
+                
                 for (int i = 0; i < eventDetailsList.Length; i++)
                 {
                     var item = eventDetailsList[i].GetItem();

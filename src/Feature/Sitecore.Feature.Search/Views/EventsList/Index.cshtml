@@ -5,26 +5,34 @@
 
 <!-- [Event List] -->
 
-<div class="content-list newslist">
-    <ol class="media-list">
-        @foreach (var currentEvent in Model.Events)
-        {
-            <li class="media media-align-middle">
-                <div class="media-left">
-                    <a href="@currentEvent.ItemUrl"> @currentEvent.Eventmage</a>
-                </div>
-                <div class="media-body">
-                    <h3 class="media-heading">
-                        <a href="@currentEvent.ItemUrl">@currentEvent.ContentHeading</a>
-                    </h3>
-                    <div class="description">
-                        <p>@currentEvent.ContentIntro</p>
+    <div style="display: flex; margin-top: 30px">
+        @Html.Sitecore().Placeholder("facets")
+        <div class="content-list newslist" style="width: 70%; margin-left: 5%">
+            <ol class="media-list">
+                @foreach (var currentEvent in Model.Events)
+                {
+                <li class="media media-align-middle">
+                    <div class="media-left">
+                        <a href="@currentEvent.ItemUrl"> @currentEvent.Eventmage</a>
                     </div>
-                </div>
-                <div class="metadata well">@currentEvent.StartDate</div>
-            </li>
-        }
-    </ol>
-</div>
-@Html.Pager(Model.PageSize, Model.TotalResultCount)
+                    <div class="media-body">
+                        <h3 class="media-heading">
+                            <a href="@currentEvent.ItemUrl">@currentEvent.ContentHeading</a>
+                        </h3>
+                        <div class="description">
+                            <p>@currentEvent.ContentIntro</p>
+                        </div>
+                    </div>
+                    <div class="metadata well">
+                        <p>Start Date: @currentEvent.StartDate</p>
+                        <p>Duration: @currentEvent.Duration </p>
+                        <p>DifficultyLevel: @currentEvent.DifficultyLevel</p>
+                    </div>      
+                </li>
+                }
+            </ol>
+            @Html.Pager(Model.PageSize, Model.TotalResultCount)
+        </div>
+       
+    </div>
 <!-- [Event List] -->

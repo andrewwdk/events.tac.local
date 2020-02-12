@@ -12,6 +12,8 @@ namespace Sitecore.Feature.Search.Models
         public string ContentHeading { get; set; }
         public string ContentIntro { get; set; }
         public DateTime StartDate { get; set; }
+        public int Duration { get; set; }
+        public int DifficultyLevel { get; set; }
         public string ItemUrl { get; set; }
         public HtmlString Eventmage
         { 

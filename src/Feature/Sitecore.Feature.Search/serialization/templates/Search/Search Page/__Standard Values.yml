@@ -18,6 +18,10 @@ SharedFields:
           ph="mainNavigation"
           uid="{44A1D539-A77E-4048-8941-197137495D6F}" />
         <r
+          id="{4E6333BC-0EA3-4E43-8710-BCAA8AC6D3F1}"
+          ph="facets"
+          uid="{45241CAC-EC13-41B1-9E18-942458B4AD1B}" />
+        <r
           id="{04F5323F-4917-45A9-9590-5FA4ABAC927D}"
           ph="searchbox"
           uid="{24830D7E-116F-45A8-B471-E381ABC4528D}" />

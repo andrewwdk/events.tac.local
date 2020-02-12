@@ -10,6 +10,7 @@ namespace Sitecore.Feature.Search.Services
     interface IUrlService
     {
         string GetParamValue(string currentPageUrl, string param);
-        
+
+        void SetParamAndValue(string currentPageUrl, string param, string value);
     }
 }

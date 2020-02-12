@@ -188,7 +188,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\web.config" />
-    <Content Include="App_Config\Include\Feature\Feature.NotFoundPage.AddHttp404Error.config" />
+    <None Include="App_Config\Include\Feature\Feature.NotFoundPage.AddHttp404Error.configl" />
     <None Include="App_Config\Include\Feature\Feature.NotFoundPage.AddProcessor.config" />
     <None Include="packages.config" />
     <None Include="Properties\PublishProfiles\CustomProfile.pubxml" />
