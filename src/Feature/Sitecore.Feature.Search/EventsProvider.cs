@@ -50,8 +50,9 @@ namespace Sitecore.Feature.Search
             var indexname = $"events_{RenderingContext.Current.ContextItem.Database.Name.ToLower()}_index";
             var index = ContentSearchManager.GetIndex(indexname);
             var home = Sitecore.Context.Database.GetItem(Sitecore.Context.Site.StartPath);
-            int pageSize;
+            int pageSize, contentLength = 0;
             int.TryParse(RenderingContext.CurrentOrNull.Rendering.Parameters["PageSize"], out pageSize);
+            int.TryParse(RenderingContext.CurrentOrNull.Rendering.Parameters["ContentBodyMaxLength"], out contentLength);
             pageSize = pageSize <= 0 ? PageSize : pageSize;
             using (var context = index.CreateSearchContext())
             {
@@ -62,6 +63,11 @@ namespace Sitecore.Feature.Search
                 if (search != null)
                 { 
                     foundEvents = foundEvents.Where(i => i.Name.Contains(search));
+                }
+
+                if(contentLength > 0)
+                {
+                    foundEvents = foundEvents.Where(i => i.ComputedContentLength <= contentLength);
                 }
 
                 if(durations != null && durations.Length > 0)
