@@ -23,20 +23,25 @@ namespace Sitecore.Feature.Business.Builders
             string title, url;
             var pages = new List<MetaNavigationItem>();
             MultilistField multiselectField = datasource.Fields["MetaPages"];
+
+            if(multiselectField == null)
+            {
+                return null;
+            }
+
             Item[] items = multiselectField.GetItems();
 
             if (items != null)
             {
                 foreach (var item in items)
                 {
-                    title = item.Fields["ContentHeading"].Value;
+                    title = item.Fields["ContentHeading"].Value ?? string.Empty;
                     url = LinkManager.GetItemUrl(item);
                     pages.Add(new MetaNavigationItem(title, url));
                 }
             }
 
-            return pages;
-               
+            return pages; 
         }
     }
 }

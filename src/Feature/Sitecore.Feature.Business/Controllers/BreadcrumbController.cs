@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Sitecore.Feature.Business.Builders;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -8,14 +9,12 @@ namespace Sitecore.Feature.Business.Controllers
 {
     public class BreadcrumbController : Controller
     {
-        private readonly BreadcrumbBuilder _builder;
+        private readonly IBreadcrumbBuilder _builder;
 
-        public BreadcrumbController(BreadcrumbBuilder builder)
+        public BreadcrumbController(IBreadcrumbBuilder builder)
         {
             _builder = builder;
         }
-
-        public BreadcrumbController() : this(new BreadcrumbBuilder()) { }
 
         // GET: Breadcrumb
         public ActionResult Index()

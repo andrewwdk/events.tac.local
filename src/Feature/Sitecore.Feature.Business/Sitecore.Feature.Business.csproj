@@ -282,9 +282,12 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BreadcrumbBuilder.cs" />
+    <Compile Include="Builders\BreadcrumbBuilder.cs" />
+    <Compile Include="Builders\IBreadcrumbBuilder.cs" />
     <Compile Include="Builders\IMainNavigationBuilder.cs" />
     <Compile Include="Builders\IMetaNavigationBuilder.cs" />
+    <Compile Include="Builders\INavigationBuilder.cs" />
+    <Compile Include="Builders\IRelatedEventsProvider.cs" />
     <Compile Include="Controllers\BreadcrumbController.cs" />
     <Compile Include="Controllers\MainNavigationController.cs" />
     <Compile Include="Controllers\MetaNavigationController.cs" />
@@ -297,9 +300,9 @@
     <Compile Include="Models\MetaNavigationItem.cs" />
     <Compile Include="Models\NavigationItem.cs" />
     <Compile Include="Models\NavigationMenuItem.cs" />
-    <Compile Include="NavigationBuilder.cs" />
+    <Compile Include="Builders\NavigationBuilder.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="RelatedEventsProvider.cs" />
+    <Compile Include="Builders\RelatedEventsProvider.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

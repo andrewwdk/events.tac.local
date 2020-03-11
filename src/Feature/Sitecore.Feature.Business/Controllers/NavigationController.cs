@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Sitecore.Feature.Business.Builders;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -8,9 +9,9 @@ namespace Sitecore.Feature.Business.Controllers
 {
     public class NavigationController : Controller
     {
-        private readonly NavigationBuilder _builder;
+        private readonly INavigationBuilder _builder;
 
-        public NavigationController(NavigationBuilder builder)
+        public NavigationController(INavigationBuilder builder)
         {
             _builder = builder;
         }

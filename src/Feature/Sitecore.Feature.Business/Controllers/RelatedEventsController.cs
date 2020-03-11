@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Sitecore.Feature.Business.Builders;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -8,14 +9,13 @@ namespace Sitecore.Feature.Business.Controllers
 {
     public class RelatedEventsController : Controller
     {
-        private readonly RelatedEventsProvider _provider;
+        private readonly IRelatedEventsProvider _provider;
 
-        public RelatedEventsController(RelatedEventsProvider provider)
+        public RelatedEventsController(IRelatedEventsProvider provider)
         {
             _provider = provider;
         }
 
-        public RelatedEventsController() : this(new RelatedEventsProvider()) { }
 
         // GET: RelatedEvents
         public ActionResult Index()

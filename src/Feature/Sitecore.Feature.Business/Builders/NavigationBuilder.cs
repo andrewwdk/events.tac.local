@@ -2,16 +2,17 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using Sitecore.Feature.Business.Builders;
 using Sitecore.Feature.Business.Models; 
 using TAC.Sitecore.Abstractions.Interfaces;
 using TAC.Sitecore.Abstractions.SitecoreImplementation;
 
 namespace Sitecore.Feature.Business
 {
-    public class NavigationBuilder
+    public class NavigationBuilder : INavigationBuilder
     {
         private readonly IRenderingContext _context;
-        public NavigationBuilder() : this(SitecoreRenderingContext.Create()) { }
+       // public NavigationBuilder() : this(SitecoreRenderingContext.Create()) { }
         public NavigationBuilder(IRenderingContext context)
         {
             _context = context;

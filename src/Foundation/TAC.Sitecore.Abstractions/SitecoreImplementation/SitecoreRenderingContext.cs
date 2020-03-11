@@ -7,7 +7,7 @@ namespace TAC.Sitecore.Abstractions.SitecoreImplementation
 {
     public class SitecoreRenderingContext : IRenderingContext
     {
-        private SitecoreRenderingContext () {}
+        public SitecoreRenderingContext () {}
         
         public static IRenderingContext Create()
         {

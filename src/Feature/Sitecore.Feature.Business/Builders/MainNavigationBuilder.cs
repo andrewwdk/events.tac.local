@@ -18,8 +18,8 @@ namespace Sitecore.Feature.Business.Builders
                 return null;
             }
 
-            return new MainNavigationItem(home?.Fields["ContentHeading"].Value, LinkManager.GetItemUrl(home),
-                (home != null) ? BuildChildren(home) : null);
+            return new MainNavigationItem( home.Fields["ContentHeading"] != null ? home.Fields["ContentHeading"].Value : string.Empty,
+                LinkManager.GetItemUrl(home), BuildChildren(home));
         }
 
         private IEnumerable<MainNavigationItem> BuildChildren(Item node)
@@ -27,7 +27,8 @@ namespace Sitecore.Feature.Business.Builders
             var children = node.GetChildren();
             var includedInNavigation = children.Where(i => i.Fields["ExcludeFromNavigation"] != null 
                 && !((CheckboxField)i.Fields["ExcludeFromNavigation"]).Checked);
-            return includedInNavigation.Select(i => new MainNavigationItem(i.Fields["ContentHeading"].Value, LinkManager.GetItemUrl(i), BuildChildren(i)));
+            return includedInNavigation.Select(i => new MainNavigationItem(i.Fields["ContentHeading"] != null ? i.Fields["ContentHeading"].Value : string.Empty,
+                LinkManager.GetItemUrl(i), BuildChildren(i)));
         }
     }
 }
